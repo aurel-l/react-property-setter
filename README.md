@@ -67,7 +67,7 @@ To see more, refer to the [examples](#example-usage) section.
 
 ## Example usage
 
-1. simple
+### simple
 
 Some DOM element higher up the tree is listening to a `load` event containing some data
 
@@ -84,7 +84,7 @@ const Component = ({ width }) => (
 _note: this is just an example, you wouldn't want to use this to set a property_
 _simply to a number_
 
-2. with Custom Elements
+### with Custom Elements
 
 If the element to set is identified to be a Custom Element, we'll automatically
 wait for its definition before setting its property value.
@@ -116,7 +116,7 @@ const Component = ({ data }) => {
 };
 ```
 
-3. with multiple property/value pairs
+### with multiple property/value pairs
 
 Multiple wrappers can be used, they will skip each other when trying to find the
 target node.
@@ -133,7 +133,7 @@ const Component = ({ data, settings }) => (
 );
 ```
 
-4. deep target
+### deep target
 
 You can provide a
 
