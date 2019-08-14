@@ -1,3 +1,5 @@
+![Property Setter logo](https://img.shields.io/npm/v/react-property-setter)
+
 # react-property-setter
 
 DOM property setter written in React. It is meant to be used directly above (as

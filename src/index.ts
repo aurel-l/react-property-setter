@@ -21,6 +21,7 @@ const PropertySetter = ({
   const [isWaiting, setIsWaiting] = useState(true);
 
   useEffect(() => {
+    // find element to assign property to
     const targetElement =
       domRef.current &&
       domRef.current.querySelector(
