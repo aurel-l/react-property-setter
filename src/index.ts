@@ -26,6 +26,7 @@ const PropertySetter = ({
       domRef.current.querySelector(
         `${target || '*'}:not([data-property-setter])`,
       );
+    if (!targetElement) return;
 
     if (isWaiting) {
       if (targetElement.tagName.includes('-')) {
@@ -38,6 +39,7 @@ const PropertySetter = ({
       }
       return;
     }
+    // @ts-ignore
     targetElement[property] = value;
   }, [target, children, property, value, isWaiting]);
 
