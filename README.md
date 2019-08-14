@@ -1,4 +1,4 @@
-![Property Setter logo](https://img.shields.io/npm/v/react-property-setter)
+[![Property Setter logo](https://img.shields.io/npm/v/react-property-setter)](https://www.npmjs.com/package/react-property-setter)
 
 # react-property-setter
 
