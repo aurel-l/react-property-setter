@@ -1,0 +1,88 @@
+{
+  "name": "react-property-setter",
+  "version": "0.1.0",
+  "description": "DOM property setter for React",
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "jsnext:main": "dist/es/index.js",
+  "types": "dist/declaration/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "npm run test:lint && npm run test:ts && npm run test:jest",
+    "test:jest": "jest",
+    "test:ts": "tsc --project tsconfig.check.json",
+    "test:lint": "eslint --color --ignore-path .gitignore \"./src/**/*.ts\"",
+    "declaration": "npm run clean:declaration && tsc --project tsconfig.declaration.json",
+    "build": "npm run build:prod",
+    "build:es": "npm run clean:es && babel src/index.ts --out-dir dist/es --extensions \".ts\" --source-maps",
+    "build:cjs": "npm run clean:cjs && webpack",
+    "build:prod": "cross-env NODE_ENV=production npm run build:es && npm run build:cjs -- --mode=production && npm run declaration",
+    "build:dev": "cross-env NODE_ENV=dev npm run build:es && npm run build:cjs -- --mode=development",
+    "clean": "npm run clean:es && npm run clean:cjs && npm run clean:declaration",
+    "clean:es": "rimraf dist/es",
+    "clean:cjs": "rimraf dist/cjs",
+    "clean:declaration": "rimraf dist/declaration",
+    "prepublishOnly": "npm run build"
+  },
+  "lint-staged": {
+    "*.{js,ts,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run test"
+    }
+  },
+  "keywords": [
+    "react",
+    "dom",
+    "property",
+    "setter",
+    "CustomElements"
+  ],
+  "homepage": "https://github.com/aurel-l/react-property-setter#readme",
+  "bugs": "https://github.com/aurel-l/react-property-setter/issues",
+  "repository": "github:aurel-l/react-property-setter",
+  "author": "Aurélien Luciani <aurelien.luciani+npm@gmail.com> (https://github.com/aurel-l/)",
+  "license": "ISC",
+  "peerDependencies": {
+    "react": "^16",
+    "react-dom": "^16"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.5.5",
+    "@babel/core": "7.5.5",
+    "@babel/preset-env": "7.5.5",
+    "@babel/preset-typescript": "7.3.3",
+    "@testing-library/react": "9.1.1",
+    "@types/jest": "24.0.17",
+    "@types/react": "16.9.1",
+    "@types/react-dom": "16.8.5",
+    "@typescript-eslint/eslint-plugin": "1.13.0",
+    "@typescript-eslint/parser": "1.13.0",
+    "babel-jest": "24.8.0",
+    "babel-loader": "8.0.6",
+    "babel-preset-minify": "0.5.0",
+    "core-js": "3.2.1",
+    "cross-env": "5.2.0",
+    "eslint": "6.1.0",
+    "eslint-config-prettier": "6.0.0",
+    "eslint-plugin-prettier": "3.1.0",
+    "husky": "3.0.3",
+    "jest": "24.8.0",
+    "lint-staged": "9.2.1",
+    "prettier": "1.18.2",
+    "react": "16.9.0",
+    "react-dom": "16.9.0",
+    "rimraf": "2.6.3",
+    "timing-functions": "1.0.0",
+    "typescript": "3.5.3",
+    "webpack": "4.39.1",
+    "webpack-cli": "3.3.6"
+  }
+}
